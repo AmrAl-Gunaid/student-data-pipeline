@@ -30,3 +30,29 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+
+
+# ==========================================================
+# Load
+# ==========================================================
+def load_data(file_path: Path) -> pd.DataFrame:
+    logger.info("Loading data from %s",file_path)
+    if not file_path.exists():
+        raise FileNotFoundError(f"Input file not found at {file_path}")
+
+    df = pd.read_csv(file_path)
+    if df.empty:
+        raise FileNotFoundError("Input dataset is empty.")
+
+    logger.info("Loaded %d rows and %d columna",len(df),len(df.columns))
+    return df
+
+
+# ==========================================================
+# Schema Validation
+# ==========================================================
+def validate_schema(df: pd.DataFrame)->None:
+    missing_columns=REQUIRED_COLUMNS-set(df.columns)
+    if missing_columns:
+        raise ValueError(f"Missing required columns: {sorted(missing_columns)}")
