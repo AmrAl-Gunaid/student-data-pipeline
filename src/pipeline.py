@@ -6,9 +6,12 @@ import pandas as pd
 # ==========================================================
 # Configuration
 # ==========================================================
-RAW_FILE = Path("data/raw/students_raw.csv")
-OUTPUT_FILE = Path("data/processed/students_ml_ready.csv")
-LOG_FILE = Path("logs/pipeline.log")
+# مجلد المشروع الجذري (أب مجلد src)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+RAW_FILE = PROJECT_ROOT / "data" / "raw" / "students_raw.csv"
+OUTPUT_FILE = PROJECT_ROOT / "data" / "processed" / "students_ml_ready.csv"
+LOG_FILE = PROJECT_ROOT / "logs" / "pipeline.log"
 
 REQUIRED_COLUMNS = {
     "student_id",
