@@ -1,0 +1,39 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# ===== Virtual Environment =====
+.venv/
+venv/
+env/
+ENV/
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===== Data (generated outputs only) =====
+data/processed/*.csv
+!data/processed/.gitkeep
+
+# ===== Logs =====
+logs/*.log
+!logs/.gitkeep
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== SQLite (for later units) =====
+*.db
+*.sqlite
+*.sqlite3
